@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import routes from "./routes.js";
+import app from "./app.js";
 
 dotenv.config();
 const app = express();
@@ -18,7 +18,7 @@ mongoose
   })
   .then(() => console.log("Connected!"));
 
-app.use("/", routes);
+app.use("/", app);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

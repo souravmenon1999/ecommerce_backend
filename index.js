@@ -8,9 +8,7 @@ import app from "./app.js";
 dotenv.config();
 const server = express();
 server.use(express.json({ limit: "50mb" }));
-server.use(cors({
-  origin: 'http://localhost:3000'
-}));
+server.use(cors());
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
 mongoose

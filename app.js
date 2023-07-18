@@ -57,7 +57,7 @@ app.post("/register", async (req, res) => {
     const oldUser = await UserRagister.findOne({ email });
 
     if (name && email && number && password && !oldUser) {
-      encryptedPassword = await bcrypt.hash(password, 10);
+      const encryptedPassword = await bcrypt.hash(password, 10);
 
       const userRagister = await UserRagister.create({
         name,

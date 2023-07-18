@@ -6,10 +6,10 @@ import dotenv from "dotenv";
 import app from "./app.js";
 
 dotenv.config();
-const app = express();
-app.use(express.json({ limit: "50mb" }));
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+const server = express();
+server.use(express.json({ limit: "50mb" }));
+server.use(cors());
+server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -18,8 +18,8 @@ mongoose
   })
   .then(() => console.log("Connected!"));
 
-app.use("/", app);
+server.use("/", app);
 
-app.listen(3000, () => {
+server.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
